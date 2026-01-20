@@ -16,21 +16,24 @@
   <meta property="og:image" content="assets/og-image.jpg" />
 
   <link rel="icon" href="assets/favicon.ico" />
+  <!-- Prettier fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="container header-grid">
-      <div class="brand">
+      <a class="brand" href="#hero" aria-label="Home">
         <img src="assets/isabella-headshot.jpg" alt="Portrait of Isabella Cleopatra" class="avatar" />
         <div>
           <h1 class="name">Isabella Cleopatra <span class="nowrap">de Sousa Proulx</span></h1>
           <p class="tagline">Landscape Architecture · Themed Design · UArizona</p>
         </div>
-      </div>
-      <nav class="nav">
+      </a>
+      <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#values">Values</a>
@@ -40,24 +43,40 @@
     </div>
   </header>
 
+  <!-- Decorative animated background -->
+  <div class="aura" aria-hidden="true"></div>
+
   <main id="main">
-    <section id="hero" class="hero">
-      <div class="container">
-        <h2>Designing immersive, sustainable places that tell stories.</h2>
-        <p>
-          Third-year Landscape Architecture student at the University of Arizona, aspiring to create memorable,
-          guest-centered environments that blend creativity with practicality.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="https://bellacleo.myportfolio.com" target="_blank" rel="noopener">View Portfolio</a>
-          <a class="btn" href="#contact">Get in Touch</a>
+    <!-- HERO -->
+    <section id="hero" class="hero" role="region" aria-label="Intro">
+      <div class="container hero-grid">
+        <div class="hero-text card glass">
+          <h2 class="display">Designing immersive, sustainable places that tell stories.</h2>
+          <p class="lead">
+            Third-year Landscape Architecture student at the University of Arizona, creating guest-centered environments
+            that blend creativity with practicality.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://bellacleo.myportfolio.com" target="_blank" rel="noopener">View Portfolio</a>
+            <a class="btn outline" href="RESUME_PUBLISH_ONLINE_URL" target="_blank" rel="noopener" aria-label="Open resume (InDesign Publish Online)">Resume</a>
+            <a class="btn subtle" href="#contact">Get in Touch</a>
+          </div>
+          <ul class="chips" aria-label="Highlights">
+            <li>Themed Design</li>
+            <li>Sustainability</li>
+            <li>Guest Experience</li>
+          </ul>
         </div>
+        <figure class="hero-visual card glass">
+          <img src="assets/feature-visual.jpg" alt="Landscape concept rendering showcasing immersive, sustainable design" />
+        </figure>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <!-- ABOUT -->
+    <section id="about" class="section" role="region" aria-label="About">
       <div class="container two-col">
-        <div>
+        <div class="prose card glass">
           <h3>About</h3>
           <p>
             I’m Isabella, a third-year Landscape Architecture student at the University of Arizona with a passion for
@@ -74,75 +93,75 @@
             <li>Theme Park Entertainment Group, ASLA—AZ Chapter</li>
           </ul>
         </div>
-        <aside class="key-card">
+
+        <aside class="key-card card glass">
           <h4>Highlights</h4>
           <ul>
-            <li>Technical Attraction Development Intern, Universal Creative (Fall 2024)</li>
-            <li>Experience with CAD & Rhino 3D</li>
-            <li>Public speaking & presentations</li>
+            <li>Technical Attraction Development Intern — Universal Creative (Fall 2024)</li>
+            <li>CAD &amp; Rhino 3D</li>
+            <li>Public speaking &amp; presentations</li>
             <li>English (native/bilingual), French (elementary)</li>
           </ul>
+          <div class="cta-row">
+            <a class="btn tiny" href="https://www.linkedin.com/in/isabellacleopatradsp373" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn tiny" href="RESUME_PUBLISH_ONLINE_URL" target="_blank" rel="noopener">Resume</a>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section id="experience" class="section alt">
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section alt" role="region" aria-label="Experience">
       <div class="container">
-        <h3>Experience</h3>
+        <h3 class="section-title">Experience</h3>
+        <div class="cards-grid">
+          <article class="experience-item card hover-lift">
+            <header>
+              <h4>Technical Attraction Development Intern</h4>
+              <div class="meta"><span>Universal Creative</span> · <span>Sep–Dec 2024</span> · <span>Orlando, FL</span></div>
+            </header>
+            <p>
+              Supported facility design during the closing stages of a major project; collaborated with cross-functional teams;
+              strengthened themed entertainment processes and safety standards knowledge.
+            </p>
+          </article>
 
-        <article class="experience-item">
-          <header>
-            <h4>Technical Attraction Development Intern</h4>
-            <div class="meta">
-              <span>Universal Creative</span> · <span>Sep–Dec 2024</span> · <span>Orlando, FL</span>
-            </div>
-          </header>
-          <p>
-            Supported facility design during the closing stages of a major project; collaborated with cross-functional teams; 
-            grew skills in themed entertainment processes and safety standards.
-          </p>
-        </article>
+          <article class="experience-item card hover-lift">
+            <header>
+              <h4>Guest Advocate</h4>
+              <div class="meta"><span>Target</span> · <span>May 2023–Jan 2024</span> · <span>Redmond, WA</span></div>
+            </header>
+            <p>
+              Delivered fast, friendly service at scale; handled POS, returns, close-out accounting, anti-fraud checks,
+              self-checkout assistance, and conflict resolution in a high-volume environment.
+            </p>
+          </article>
 
-        <article class="experience-item">
-          <header>
-            <h4>Guest Advocate</h4>
-            <div class="meta">
-              <span>Target</span> · <span>May 2023–Jan 2024</span> · <span>Redmond, WA</span>
-            </div>
-          </header>
-          <p>
-            Delivered high-volume, fast, friendly service; handled POS, returns, close-out accounting, anti-fraud checks, 
-            self-checkout assistance, and conflict resolution in a busy environment.
-          </p>
-        </article>
-
-        <article class="experience-item">
-          <header>
-            <h4>Young Researcher</h4>
-            <div class="meta">
-              <span>Bath Royal Literary and Scientific Institution</span> · <span>Oct 2017–Nov 2018</span> · <span>Bath, UK</span>
-            </div>
-          </header>
-          <p>
-            Designed and conducted research; presented talks and a poster to the public and radio; built confidence in 
-            storytelling, communication, and structured inquiry.
-          </p>
-        </article>
+          <article class="experience-item card hover-lift">
+            <header>
+              <h4>Young Researcher</h4>
+              <div class="meta"><span>Bath Royal Literary and Scientific Institution</span> · <span>Oct 2017–Nov 2018</span> · <span>Bath, UK</span></div>
+            </header>
+            <p>
+              Designed and conducted research; delivered public talks and a poster; developed clear storytelling and public communication skills.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="values" class="section">
+    <!-- VALUES -->
+    <section id="values" class="section" role="region" aria-label="Design Values">
       <div class="container two-col">
-        <div>
+        <div class="prose card glass">
           <h3>Design Values</h3>
-          <p class="lead">Fun · Beauty · Sustainability</p>
+          <p class="value-lead">Fun · Beauty · Sustainability</p>
           <p>
-            My design practice is shaped by storytelling and environmental stewardship. I draw inspiration from Ancient
-            Egyptian and Greek mythology, and the Grimm fairy tales—aiming to create guest experiences that are both
-            memorable and responsible.
+            My practice is shaped by storytelling and environmental stewardship. I draw inspiration from Ancient
+            Egyptian and Greek mythology and Grimm fairy tales—creating guest experiences that are both memorable and responsible.
           </p>
         </div>
-        <div class="pill-grid">
+        <div class="pill-grid card glass">
           <span class="pill">Immersive Environments</span>
           <span class="pill">Guest Experience</span>
           <span class="pill">Environmental Responsibility</span>
@@ -151,39 +170,74 @@
       </div>
     </section>
 
-    <section id="portfolio" class="section alt">
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section alt" role="region" aria-label="Portfolio">
       <div class="container">
-        <h3>Portfolio</h3>
-        <p>
+        <h3 class="section-title">Portfolio</h3>
+        <p class="subtle">
           Selected academic and independent projects showcasing themed design, site planning, and visual storytelling.
           Visit my Adobe Portfolio for full case studies, drawings, and renders.
         </p>
-        <a class="btn primary" href="https://bellacleo.myportfolio.com" target="_blank" rel="noopener">
-          Explore Portfolio
-        </a>
+        <div class="gallery">
+          <!-- Replace placeholders with real thumbnails -->
+          <a class="gallery-card hover-lift" href="https://bellacleo.myportfolio.com" target="_blank" rel="noopener">
+            <img src="assets/thumb-01.jpg" alt="Project thumbnail 1" />
+            <div class="gallery-meta">
+              <h5>Concept Park Plaza</h5><span>Immersive urban oasis</span>
+            </div>
+          </a>
+          <a class="gallery-card hover-lift" href="https://bellacleo.myportfolio.com" target="_blank" rel="noopener">
+            <img src="assets/thumb-02.jpg" alt="Project thumbnail 2" />
+            <div class="gallery-meta">
+              <h5>Mythic Garden Walk</h5><span>Story-led landscape</span>
+            </div>
+          </a>
+          <a class="gallery-card hover-lift" href="https://bellacleo.myportfolio.com" target="_blank" rel="noopener">
+            <img src="assets/thumb-03.jpg" alt="Project thumbnail 3" />
+            <div class="gallery-meta">
+              <h5>Watershed Retreat</h5><span>Sustainable ecology</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="center">
+          <a class="btn primary big" href="https://bellacleo.myportfolio.com" target="_blank" rel="noopener">Explore Full Portfolio</a>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h3>Contact</h3>
-        <p>
-          I’m open to internship opportunities and collaborations worldwide. Please feel free to reach out!
-        </p>
-        <ul class="contact-list">
-          <li><strong>Email:</strong> <a href="mailto:bellacleo@arizona.edu">bellacleo@arizona.edu</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/isabellacleopatradsp373" target="_blank" rel="noopener">linkedin.com/in/isabellacleopatradsp373</a></li>
-          <li><strong>Location:</strong> Tucson, Arizona · United States</li>
-        </ul>
-        <div class="hero-actions">
-          <a class="btn" href="assets/Isabella_CV.pdf" download>Download Resume (PDF)</a>
-          <a class="btn" href="#about">Back to top</a>
+    <!-- CONTACT -->
+    <section id="contact" class="section" role="region" aria-label="Contact">
+      <div class="container two-col">
+        <div class="prose card glass">
+          <h3>Contact</h3>
+          <p>I’m open to internship opportunities and collaborations worldwide. Please feel free to reach out!</p>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> <a href="mailto:bellacleo@arizona.edu">bellacleo@arizona.edu</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/isabellacleopatradsp373" target="_blank" rel="noopener">linkedin.com/in/isabellacleopatradsp373</a></li>
+            <li><strong>Location:</strong> Tucson, Arizona · United States</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn outline" href="RESUME_PUBLISH_ONLINE_URL" target="_blank" rel="noopener">View Resume</a>
+            <a class="btn subtle" href="#hero">Back to top</a>
+          </div>
         </div>
+
+        <aside class="card glass contact-card">
+          <h4>Availability</h4>
+          <p class="subtle">
+            Open to internships in Graphic Design, Landscape Architecture/Design, Architecture, and Architectural Design.
+            Eligible worldwide (passports: Portugal, US, UK).
+          </p>
+          <div class="mini-chips">
+            <span>Summer</span><span>Fall</span><span>Remote</span><span>On-site</span>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
       <p>© <span id="year"></span> Isabella Cleopatra de Sousa Proulx · All rights reserved.</p>
     </div>
