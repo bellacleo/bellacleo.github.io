@@ -4,141 +4,91 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Landscape Architecture — Tiles</title>
+  <title>Landscape Tiles · Isabella Cleopatra</title>
 
-  <!-- Fonts & Icons (optional) -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Droid+Serif&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Use the correct path for your CSS. If your CSS is at repo root: -->
+  <link rel="stylesheet" href="styles.css?v=1" />
+  <!-- If your CSS is inside /assets instead, use this instead: -->
+  <!-- <link rel="stylesheet" href="assets/styles.css?v=1" /> -->
 
-  <!-- Site CSS (optional; inline fallback styles below) -->
-  <link rel="stylesheet" href="./assets/css/common.css">
-  <link rel="stylesheet" href="./assets/css/info.css">
-
-  <!-- Fallback/base styles so it looks good even without external CSS -->
-  <style>
-    :root { --text:#222; --hover:#0b7285; }
-    * { box-sizing: border-box; }
-    body { margin:0; color:var(--text); font-family:"Quicksand", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-    a { color: inherit; text-decoration: none; }
-    #wrapper { max-width: 1400px; margin: 0 auto; }
-    header .bar { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; }
-    .brand { display:flex; align-items:center; gap:.5rem; font-weight:700; }
-    .brand .icon { display:inline-grid; place-items:center; width:26px; height:26px; border-radius:6px; background:#222; color:#fff; font-size:14px; }
-    nav a { margin-left:14px; opacity:.9; }
-    nav a:hover { color: var(--hover); opacity:1; }
-
-    #container { padding: 12px 10px; }
-    #specimens { display:flex; flex-wrap: wrap; margin-left:-6px; margin-right:-6px; }
-    .square { padding:6px; }
-    .tile { position:relative; width:100%; aspect-ratio:1/1; overflow:hidden; border-radius:10px; background:#f5f5f5; }
-    .tile img { width:100%; height:100%; display:block; object-fit:cover; }
-    .shade { position:absolute; left:0; right:0; bottom:0; height:36%; background:linear-gradient(transparent, rgba(0,0,0,.68)); }
-    .caption { position:absolute; left:10px; right:10px; bottom:8px; color:#fff; }
-    .caption h3 { margin:0; font-size:1rem; font-weight:600; }
-    .meta { margin-top:2px; font-size:.85rem; opacity:.85; }
-
-    .tile { transition: transform 120ms ease-out, box-shadow 120ms ease-out; }
-    .tile:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.15); }
-
-    footer { border-top:1px solid #eee; padding:16px; font-family:"Droid Serif", serif; text-align:center; }
-  </style>
+  <meta name="description" content="Tile catalogue of landscape images inspired by the Brain Catalogue grid style." />
+  <meta property="og:title" content="Landscape Tiles · Isabella Cleopatra" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bellacleo.github.io/tiles.html" />
 </head>
-<body>
-<div id="wrapper">
 
-  <!-- Header (simple) -->
-  <header>
-    <div class="bar">
-      <div class="brand">
-        <span class="icon"><i class="fa fa-leaf"></i></span>
-        <a href="./"><span>Landscape Tiles</span></a>
-      </div>
-      <nav aria-label="Main">
-        <a href="./">Home</a>
-        <a href="./tiles.html" aria-current="page">Tiles</a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="index.html#hero">
+        <img src="assets/isabella-headshot.jpg" alt="Portrait of Isabella Cleopatra" class="avatar" />
+        <div>
+          <h1 class="name">Isabella Cleopatra <span class="nowrap">de Sousa Proulx</span></h1>
+          <p class="tagline">Landscape Architecture · Themed Design · UArizona</p>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="tiles.html" class="cta">Tiles</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Grid -->
-  <main id="container">
-    <div id="specimens" aria-live="polite"></div>
+  <main id="main" class="section">
+    <div class="container">
+      <h2 class="section-title">Landscape Tile Gallery</h2>
+      <p class="subtle">
+        A tile-based catalogue of landscape images inspired by the Brain Catalogue grid layout. Images are uniform tiles for quick visual browsing.
+      </p>
+
+      <!--
+        Drop your images in assets/landscapes/ and reference them below.
+        You can add/remove <a> blocks as needed—copy/paste another item and change the src/href.
+      -->
+      <div class="tile-grid">
+        <!-- Each tile is a link to the full-size image; the img is a cropped tile preview -->
+        <a class="tile" href="assets/landscapes/land1.jpg" target="_blank" rel="noopener">
+          <img src="assets/landscapes/land1.jpg" alt="Landscape 1" loading="lazy" />
+        </a>
+
+        <a class="tile" href="assets/landscapes/land2.jpg" target="_blank" rel="noopener">
+          <img src="assets/landscapes/land2.jpg" alt="Landscape 2" loading="lazy" />
+        </a>
+
+        <a class="tile" href="assets/landscapes/land3.jpg" target="_blank" rel="noopener">
+          <img src="assets/landscapes/land3.jpg" alt="Landscape 3" loading="lazy" />
+        </a>
+
+        <a class="tile" href="assets/landscapes/land4.jpg" target="_blank" rel="noopener">
+          <img src="assets/landscapes/land4.jpg" alt="Landscape 4" loading="lazy" />
+        </a>
+
+        <a class="tile" href="assets/landscapes/land5.jpg" target="_blank" rel="noopener">
+          <img src="assets/landscapes/land5.jpg" alt="Landscape 5" loading="lazy" />
+        </a>
+
+        <a class="tile" href="assets/landscapes/land6.jpg" target="_blank" rel="noopener">
+          <img src="assets/landscapes/land6.jpg" alt="Landscape 6" loading="lazy" />
+        </a>
+
+        <!-- Add more tiles as needed -->
+      </div>
+    </div>
   </main>
 
-</div>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Isabella Cleopatra de Sousa Proulx · All rights reserved.</p>
+    </div>
+  </footer>
 
-<footer>
-  © <span id="year"></span> Landscape Tiles · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
-</footer>
-
-<!-- Papa Parse (CSV parser) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script>
-  // ~200px target square width, responsive across screen sizes
-  function layoutSquares() {
-    const w0 = window.innerWidth;
-    const minCell = 200;                           // desired tile width
-    const n = Math.max(1, Math.round(w0 / minCell));
-    const w2 = Math.floor(w0 / n);
-    document.querySelectorAll(".square").forEach(el => el.style.width = w2 + "px");
-  }
-
-  function makeCard({ name, file, image, location, year, link }) {
-    const href = link?.trim() || "#";             // optional external or detail page
-    const imgSrc = image?.trim() || `./assets/images/${file}.jpg`;
-
-    const div = document.createElement("div");
-    div.className = "square";
-    div.innerHTML = `
-      ${href}" ${href === "#" ? "" : 'target="_blank" rel="noopener"'} aria-label="${name || 'Landscape'}">
-        <div class="tile">
-          <img src="${imgSrc}" alt="${name || 'Landscape'}" loading="lazy">
-          <div class="shade"></div>
-          <div class="caption">
-            <h3>${name || "Untitled Landscape"}</h3>
-            ${(location || year) ? `<div class="meta">${[location, year].filter(Boolean).join(" • ")}</div>` : ""}
-          </div>
-        </div>
-      </a>
-    `;
-    // Fallback if an image fails to load
-    div.querySelector("img").addEventListener("error", (e) => { e.target.src = "./assets/images/placeholder.jpg"; }, { once:true });
-    return div;
-  }
-
-  async function initTiles() {
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const res = await fetch("./assets/data/landscapes.csv", { cache: "no-store" });
-    const csvText = await res.text();
-    const { data: rows, errors } = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-    if (errors?.length) console.warn("CSV parse errors:", errors);
-
-    const grid = document.getElementById("specimens");
-    const frag = document.createDocumentFragment();
-
-    for (const row of rows) {
-      // CSV columns: name,file,image,location,year,link
-      const card = makeCard({
-        name: (row.name || "").trim(),
-        file: (row.file || "").trim(),
-        image: (row.image || "").trim(),
-        location: (row.location || "").trim(),
-        year: (row.year || "").trim(),
-        link: (row.link || "").trim()
-      });
-      frag.appendChild(card);
-    }
-
-    grid.appendChild(frag);
-    layoutSquares();
-    window.addEventListener("resize", layoutSquares, { passive: true });
-  }
-
-  initTiles();
-</script>
-
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-``
