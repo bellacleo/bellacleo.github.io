@@ -1,4 +1,3 @@
-
 /* ========== THEME ========== */
 :root{
   --bg: #0b0d11;
@@ -230,4 +229,36 @@ a:hover { text-decoration: underline; }
 .btn.outline { background: transparent; }
 .btn.subtle { background: #0f141f; }
 .btn.tiny { padding: .45rem .7rem; font-size: .93rem; }
+
+
+/* Masonry using CSS columns with a fixed target width per column */
+.tile-grid.masonry {
+  column-width: 320px;   /* ← set this to your THUMB width in pixels */
+  column-gap: 14px;
+}
+
+@media (max-width: 1000px) { .tile-grid.masonry { column-width: 280px; } }
+@media (max-width: 640px)  { .tile-grid.masonry { column-width: 220px; } }
+
+.tile {
+  display: inline-block;
+  width: 100%;           /* becomes ~column width */
+  margin: 0 0 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #12161e;
+  box-shadow: 0 8px 22px rgba(0,0,0,.25);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+  border-color: rgba(255,255,255,.12);
+}
+.tile img {
+  display: block;
+  width: 100%;
+  height: auto;          /* natural height preserved */
+}
 ``
