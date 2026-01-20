@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brain Catalogue</title>
+
+  <!-- Fonts -->
+  https://fonts.googleapis.com/css?family=Droid+Serif|Quicksand:400,600&display=swap
+
+  <!-- Font Awesome (modern, optional). If you prefer 4.4.0, keep your original link. -->
+  https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS (place files at ./assets/css/) -->
+  ./assets/css/common.css
+  ./assets/css/info.css
+
+  <!-- Basic resets to make the grid look decent even before CSS loads -->
+  <style>
+    body { margin: 0; font-family: "Quicksand", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    #wrapper { max-width: 1400px; margin: 0 auto; }
+    header .myinner { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; }
+    a.menu { margin-left: 14px; text-decoration: none; color: #333; }
+    .bcicon { display:inline-block; background:#222; color:#fff; font-weight:700; border-radius:4px; padding:2px 8px; margin-right:6px; }
+    #container { padding: 10px 8px; }
+    #specimens { display: flex; flex-wrap: wrap; }
+    .square { box-sizing: border-box; padding: 6px; }
+    .crop { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; }
+    .picture img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .description-background { position:absolute; left:0; right:0; bottom:0; height:36%; background: linear-gradient(transparent, rgba(0,0,0,.65)); }
+    .description-name { position:absolute; bottom:6px; left:10px; right:10px; color:#fff; }
+    footer { border-top: 1px solid #eee; padding: 16px; font-family: "Droid Serif", serif; }
+    table { border-collapse: collapse; }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+
+  <!-- Header -->
+  <header id="header">
+    <div class="myinner">
+      <div id="title" class="cell">
+        <h1 style="display:inline-block;margin:0;">
+          <a class="menu nodecoration" href="./">
+            <span class="bcicon">a</span> Brain Catalogue
+          </a>
+        </h1>
+      </div>
+      <nav id="menu" class="cell" aria-label="Main">
+        <span id="MyLogin"></span>
+        <span>
+          <a class="menu" href="./">Blog</a>
+          <a class="menu" href="./">About</a>
+          <!-- RSS icon (ensure link is correct & allowed) -->
+          http://siphonophore.org/blog/?cat=3&feed=rss2
+            <i class="fa fa-rss"></i>
+          </a>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Middle -->
+  <section id="middle">
+    <div id="container">
+      <div id="specimens" aria-live="polite"></div>
+    </div>
+  </section>
+
+</div> <!-- /wrapper -->
+
+<footer id="footer">
+  <div>
+    <table>
+      <tr>
+        <td>
+          <!-- Put the CC image at ./assets/img/88x31.png -->
+          https://creativecommons.org/licenses/by-sa/3.0/
+            <img alt="Creative Commons License" src="./"/>
+          </a>
+        </td>
+        <td style="padding-left:8px;">
+          <span>Brain Catalogue</span> by
+          https://siphonophore.org/braincatalogueRoberto Toro</a>
+          is licensed under a
+          https://creativecommons.org/licenses/by-sa/3.0/CC BY-SA 3.0 Unported License</a>.
+        </td>
+      </tr>
+    </table>
+  </div>
+</footer>
+
+<!-- jQuery (modern) -->
+https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  // Data: keep in JS or move to ./assets/data/specimens.json and fetch it
+  const specimens = [
+    {"name":"Baboon","file":"Baboon"},
+    {"name":"Black rhinoceros","file":"Black_rhinoceros"},
+    {"name":"Blackbuck","file":"Blackbuck"},
+    {"name":"Bottlenose dolphin","file":"Bottlenose_dolphin"},
+    {"name":"Cat","file":"Cat"},
+    {"name":"Cheetah","file":"Cheetah"},
+    {"name":"Chimpanzee","file":"Chimpanzee"},
+    {"name":"Crab-eating macaque","file":"Crab-eating_macaque"},
+    {"name":"Demidoff's dwarf Galago","file":"Demidoff's_dwarf_Galago"},
+    {"name":"Ferret","file":"Ferret"},
+    {"name":"Giant panda","file":"Giant_panda"},
+    {"name":"Gibbon","file":"Gibbon"},
+    {"name":"Giraffe","file":"Giraffe"},
+    {"name":"Gorilla","file":"Gorilla"},
+    {"name":"Gray wolf","file":"Gray_wolf"},
+    {"name":"Grey-cheeked mangabey","file":"Grey-cheeked_mangabey"},
+    {"name":"House mouse","file":"House_mouse"},
+    {"name":"Human","file":"Human"},
+    {"name":"La Plata dolphin","file":"La_Plata_dolphin"},
+    {"name":"Leopard","file":"Leopard"},
+    {"name":"Lion","file":"Lion"},
+    {"name":"Night monkey","file":"Night_monkey"},
+    {"name":"Nile crocodile","file":"Nile_crocodile"},
+    {"name":"Nursehound","file":"Nursehound"},
+    {"name":"Okapi","file":"Okapi"},
+    {"name":"Orangutan","file":"Orangutan"},
+    {"name":"Ostrich","file":"Ostrich"},
+    {"name":"Plains zebra","file":"Plains_zebra"},
+    {"name":"Platypus","file":"Platypus"},
+    {"name":"Red-necked wallaby","file":"Red-necked_wallaby"},
+    {"name":"Red kangaroo","file":"Red_kangaroo"},
+    {"name":"Red squirrel","file":"Red_squirrel"},
+    {"name":"Rhesus macaque","file":"Rhesus_macaque"},
+    {"name":"Sloth bear","file":"Sloth_bear"},
+    {"name":"Slow loris","file":"Slow_loris"},
+    {"name":"Thylacine","file":"Thylacine"},
+    {"name":"White-headed capuchin","file":"White-headed_capuchin"}
+  ];
+
+  function layoutSquares() {
+    const w0 = window.innerWidth;
+    const minCell = 200; // px
+    const n = Math.max(1, Math.round(w0 / minCell));
+    const w2 = Math.floor(w0 / n);
+    $("#specimens").css("width", w0 + "px");
+    $(".square").css({ width: w2 + "px" });
+  }
+
+  $(function () {
+    // Render grid
+    const $grid = $("#specimens");
+    for (const {name, file} of specimens) {
+      const el = [
+        '<div class="square">',
+        `  <a class="gallery" aria-label="${name}" href="./">`,
+        '    <div class="crop">',
+        `      <div class="picture"><img src="./"/></div>`,
+        '      <div class="description-background"></div>',
+        `      <div class="description-name"><h3 style="margin:0;">${name}</h3></div>`,
+        '    </div>',
+        '  </a>',
+        '</div>'
+      ].join("");
+      $grid.append(el);
+    }
+    layoutSquares();
+    window.addEventListener("resize", layoutSquares, { passive: true });
+  });
+</script>
+
+<!-- Optional: your login widget (place the file at ./assets/lib/mylogin/login.js) -->
+<script src="./"></script>
+<script>
+  // If your login widget exposes a global MyLoginWidget:
+  // if (window.MyLoginWidget) MyLoginWidget.init($("#MyLogin"));
+</script>
+
+<!-- Optional: jQuery UI (only if you actually need it) -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js</script> -->
+
+<!-- Analytics (GA4). Replace G-XXXXXXXXXX with your real Measurement ID) -->
+<!--
+https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+
+</body>
+</html>
