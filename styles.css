@@ -154,20 +154,40 @@ a:hover { text-decoration: underline; }
 .key-card ul { margin: 0 0 .9rem; padding-left: 1.1rem; }
 .cta-row { display: flex; gap: .5rem; flex-wrap: wrap; }
 
-/* EXPERIENCE */
+/* EXPERIENCE — simplified for one feature card with image */
 .cards-grid {
-  display: grid; gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;   /* only one item now */
 }
-@media (max-width: 980px){
-  .cards-grid { grid-template-columns: 1fr 1fr; }
+.experience-item {
+  padding: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
 }
-@media (max-width: 640px){
-  .cards-grid { grid-template-columns: 1fr; }
+/* Top image */
+.experience-item img {
+  width: 100%;
+  height: 280px;          /* adjust how tall you want it */
+  object-fit: cover;      /* crop nicely instead of stretching */
+  display: block;
 }
-.experience-item { padding: 1rem; }
-.experience-item header h4 { margin: .1rem 0 .2rem; font-size: 1.08rem; }
-.experience-item .meta { color: var(--muted); font-size: .95rem; }
+/* Text section */
+.experience-item header,
+.experience-item p {
+  padding: 1rem 1.1rem;
+}
+.experience-item header h4 {
+  margin: .1rem 0 .2rem;
+  font-size: 1.15rem;
+}
+.experience-item .meta {
+  color: var(--muted);
+  font-size: .95rem;
+}
 
 /* VALUES */
 .value-lead { font-weight: 700; color: var(--brand-gold); letter-spacing: .2px; }
